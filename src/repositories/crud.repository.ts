@@ -1,7 +1,8 @@
 import { Crud } from "../models/crud.model";
 
 class CrudRepository {
-    static async addData(requestBody: any) {
+
+    public static async addData(requestBody: any) {
         try {
 
             const { name, email, age } = requestBody;

@@ -1,13 +1,13 @@
 import express from 'express';
 require('express-async-errors');
 import loadApp from './src/startup/app';
-import Database from './src/startup/db';
+import database from './src/startup/db';
 require('dotenv').config()
 const app = express();
 import  mongoose from "mongoose"
 
 loadApp(app);
-Database.getInstance();
+database.getInstance();
 
 const port = process.env.PORT || 8000;
 

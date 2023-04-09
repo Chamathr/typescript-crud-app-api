@@ -2,7 +2,7 @@ import CrudRepository from '../repositories/crud.repository'
 
 class CrudService {
 
-    static async addData(requestBody: any): Promise<any> {
+    public static async addData(requestBody: any): Promise<any> {
         try {
             const response = await CrudRepository.addData(requestBody)
             return response

@@ -12,6 +12,7 @@ class Database {
         } as ConnectOptions;
 
         mongoose.connect(dbConfig.databaseUrl, options);
+        console.log("Connected to MongoDb")
     }
 
     public static getInstance(): Database {

@@ -3,7 +3,7 @@ import CrudService from "../services/crud.service";
 
 class CrudController {
 
-    static async healthcheck(req: Request, res: Response): Promise<any> {
+    public static async healthcheck(req: Request, res: Response): Promise<any> {
         try {
             const responseBody = {
                 status: 200,
@@ -22,7 +22,7 @@ class CrudController {
         }
     }
 
-    static async addData(req: Request, res: Response): Promise<any> {
+    public static async addData(req: Request, res: Response): Promise<any> {
         try {
             const response = await CrudService.addData(req?.body)
             const responseBody = {
@@ -31,7 +31,8 @@ class CrudController {
                 body: response?.body
             }
             res.status(201).json(responseBody)
-        } catch (error) {
+        }
+        catch (error) {
             const errorBody = {
                 status: 500,
                 message: 'failed',
