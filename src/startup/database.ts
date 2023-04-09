@@ -1,5 +1,5 @@
 import mongoose, { ConnectOptions } from 'mongoose';
-import dbConfig from '../config/db';
+import dbConfig from '../config/database';
 
 class Database {
 

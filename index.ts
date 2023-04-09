@@ -1,7 +1,7 @@
 import express from 'express';
 require('express-async-errors');
 import loadApp from './src/startup/app';
-import database from './src/startup/db';
+import database from './src/startup/database';
 require('dotenv').config()
 const app = express();
 import  mongoose from "mongoose"
