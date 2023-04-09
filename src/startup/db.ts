@@ -11,7 +11,7 @@ class Database {
             useUnifiedTopology: true
         } as ConnectOptions;
 
-        mongoose.connect(dbConfig.endpoint, options);
+        mongoose.connect(dbConfig.databaseUrl, options);
     }
 
     public static getInstance(): Database {

@@ -1,3 +1,3 @@
 export default {
-    endpoint: 'mongodb+srv://chamathr:Kumar_123@dev-01.xbfnx7n.mongodb.net/?retryWrites=true&w=majority',
+    databaseUrl: 'mongodb://admin:wBUmMJKdumnWjH4F@20.205.7.231:57017/globalconf?authSource=admin&readPreference=primary&ssl=false',
 }
