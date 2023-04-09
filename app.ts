@@ -44,7 +44,5 @@ interface LocationWithTimezone {
   
     response.status(200).json(locations);
   };
-
-  //https://github.com/saisilinus/node-express-mongoose-typescript-boilerplate/tree/master/src
   
   app.get('/timezones', getLocationsWithTimezones);
