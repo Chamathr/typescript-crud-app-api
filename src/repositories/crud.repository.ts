@@ -2,7 +2,7 @@ import { Crud } from "../models/crud.model";
 
 class CrudRepository {
 
-    public static async addData(requestBody: any) {
+    public static async addData(requestBody: any): Promise<any> {
         try {
 
             const { name, email, age } = requestBody;
@@ -18,7 +18,7 @@ class CrudRepository {
                 return responseBody
             }
 
-            const data = Crud.build({
+            const data = new Crud({
                 name,
                 email,
                 age

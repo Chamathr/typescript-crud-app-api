@@ -1,27 +1,29 @@
 import mongoose, { ConnectOptions } from 'mongoose';
-import dbConfig from '../config/database';
+import databaseConfig from '../config/database';
 
-class Database {
+class MongoDbConnection {
 
-    private static instance: Database;
+    private static instance: MongoDbConnection;
 
-    private constructor() {
+    private constructor() { }
+
+    public static async getInstance(): Promise<MongoDbConnection> {
         const options = {
             useNewUrlParser: true,
             useUnifiedTopology: true
         } as ConnectOptions;
-
-        mongoose.connect(dbConfig.databaseUrl, options);
-        console.log("Connected to MongoDb")
-    }
-
-    public static getInstance(): Database {
-        if (!Database.instance) {
-            Database.instance = new Database();
+        if (!MongoDbConnection.instance) {
+            try {
+                await mongoose.connect(databaseConfig.databaseUrl, options)
+                console.log('Connected to MongoDB!');
+            }
+            catch (error) {
+                console.error('Error connecting to MongoDB:', error.message);
+            }
+            MongoDbConnection.instance = new MongoDbConnection();
         }
-
-        return Database.instance;
+        return MongoDbConnection.instance;
     }
 }
 
-export default Database;
+export default MongoDbConnection;
