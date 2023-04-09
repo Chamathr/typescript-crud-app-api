@@ -4,7 +4,7 @@ class CrudService {
 
     public static async addData(requestBody: any): Promise<any> {
         try {
-            const response = await CrudRepository.addData(requestBody)
+            const response: object = await CrudRepository.addData(requestBody)
             return response
         }
         catch (error) {

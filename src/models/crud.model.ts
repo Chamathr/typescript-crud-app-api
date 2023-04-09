@@ -23,7 +23,6 @@ const CrudSchema = new mongoose.Schema(
     }
 )
 
-
 CrudSchema.plugin(mongoosePaginate);
 const Crud = mongoose.model('crud', CrudSchema);
 export { Crud };

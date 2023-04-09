@@ -4,4 +4,4 @@ interface ICrud {
     age: number
 }
 
-export default ICrud
+export { ICrud }

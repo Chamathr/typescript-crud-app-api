@@ -1,8 +1,10 @@
 import { Crud } from "../models/crud.model";
+import { IResponseBody, IErrorBody } from "../interfaces/common.interface";
+import { ICrud } from "../interfaces/crud.interface";
 
 class CrudRepository {
 
-    public static async addData(requestBody: any): Promise<any> {
+    public static async addData(requestBody: ICrud): Promise<any> {
         try {
 
             const { name, email, age } = requestBody;
@@ -10,7 +12,7 @@ class CrudRepository {
             const isEmailExists = await Crud.findOne({ email: email });
 
             if (isEmailExists) {
-                const responseBody = {
+                const responseBody: IResponseBody = {
                     status: 409,
                     message: 'Email already exists',
                     body: {}
@@ -26,7 +28,7 @@ class CrudRepository {
 
             const insertedData = await data.save();
 
-            const responseBody = {
+            const responseBody: IResponseBody = {
                 status: 201,
                 message: 'Data added successfully',
                 body: insertedData
