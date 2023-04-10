@@ -4,10 +4,4 @@ interface IResponseBody {
     body: any
 }
 
-interface IErrorBody {
-    status: number,
-    message: string,
-    body: any
-}
-
-export { IResponseBody, IErrorBody }
+export { IResponseBody }

@@ -1,9 +1,14 @@
 import { Crud } from "../models/crud.model";
-import { IResponseBody, IErrorBody } from "../interfaces/common.interface";
+import { IResponseBody } from "../interfaces/common.interface";
 import { ICrud } from "../interfaces/crud.interface";
 
 class CrudRepository {
 
+    /**
+     * add data repository
+     * @param {ICrud} requestBody 
+     * @returns {IResponseBody} responseBody
+     */
     public static async addData(requestBody: ICrud): Promise<any> {
         try {
 
@@ -35,7 +40,42 @@ class CrudRepository {
             }
             return responseBody
 
-        } catch (error) {
+        }
+        catch (error) {
+            throw error
+        }
+    }
+
+    /**
+     * get data repository
+     * @returns {IResponseBody} resposeBody
+     */
+    public static async getData(): Promise<any> {
+        try {
+            const data = await Crud.find({});
+            const responseBody: IResponseBody = {
+                status: 200,
+                message: 'Data fetched successfully',
+                body: data
+            }
+            return responseBody
+        }
+        catch (error) {
+            throw error
+        }
+    }
+
+    public static async getDataById(): Promise<any> {
+        try {
+            const data = await Crud.find({});
+            const responseBody: IResponseBody = {
+                status: 200,
+                message: 'Data fetched successfully',
+                body: data
+            }
+            return responseBody
+        }
+        catch (error) {
             throw error
         }
     }

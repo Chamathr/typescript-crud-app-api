@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import CrudService from "../services/crud.service";
-import { IErrorBody, IResponseBody } from "../interfaces/common.interface";
+import { IResponseBody } from "../interfaces/common.interface";
 
 class CrudController {
 
@@ -14,12 +14,12 @@ class CrudController {
             res.status(200).json(responseBody);
         }
         catch (error) {
-            const errorBody: IErrorBody = {
+            const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
                 body: 'Error'
             }
-            res.status(500).json(errorBody);
+            res.status(500).json(responseBody);
         }
     }
 
@@ -31,17 +31,39 @@ class CrudController {
                 message: response?.message,
                 body: response?.body
             }
-            res.status(201).json(responseBody)
+            res.status(response?.status).json(responseBody)
         }
         catch (error) {
-            const errorBody: IErrorBody = {
+            const responseBody: IResponseBody = {
                 status: 500,
-                message: 'failed',
-                body: error.toString()
+                message: 'Error',
+                body: error.message
             }
-            res.status(500).json(errorBody);
+            res.status(500).json(responseBody);
         }
     }
+
+    public static async getData(req: Request, res: Response): Promise<any> {
+        try {
+            const response = await CrudService.getData()
+            const responseBody: IResponseBody = {
+                status: response?.status,
+                message: response?.message,
+                body: response?.body
+            }
+            res.status(response?.status).json(responseBody)
+        }
+        catch (error) {
+            const responseBody: IResponseBody = {
+                status: 500,
+                message: 'Error',
+                body: error.message
+            }
+            res.status(500).json(responseBody);
+        }
+    }
+
+
 }
 
 export default CrudController
