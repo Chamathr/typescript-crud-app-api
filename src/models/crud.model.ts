@@ -19,6 +19,11 @@ const CrudSchema = new mongoose.Schema(
             type: Date,
             required: true,
             default: Date.now()
+        },
+        isDelete: {
+            type: Boolean,
+            required: true,
+            default: false
         }
     }
 )

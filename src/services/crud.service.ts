@@ -21,11 +21,27 @@ class CrudService {
 
     /**
      * get data service
+     * @param {string} page
      * @returns {IResponseBody} responseBody
      */
-    public static async getData(): Promise<any> {
+    public static async getData(page: string): Promise<any> {
         try {
-            const response: IResponseBody = await CrudRepository.getData()
+            const response: IResponseBody = await CrudRepository.getData(page)
+            return response
+        }
+        catch (error) {
+            throw error
+        }
+    }
+
+     /**
+     * get data by id service
+     * @param {string} id
+     * @returns {IResponseBody} responseBody
+     */
+     public static async getDataById(id: string): Promise<any> {
+        try {
+            const response: IResponseBody = await CrudRepository.getDataById(id)
             return response
         }
         catch (error) {

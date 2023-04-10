@@ -50,13 +50,26 @@ class CrudRepository {
      * get data repository
      * @returns {IResponseBody} resposeBody
      */
-    public static async getData(): Promise<any> {
+    public static async getData(page: string): Promise<any> {
         try {
-            const data = await Crud.find({});
+            const pageNumber = parseInt(page) || 1
+            const pageSize = 10
+            const skips = pageSize * (pageNumber - 1);
+            const sort: any = { createdAt: -1 }
+
+            const data = await Crud.find({isDelete: false}).skip(skips).limit(pageSize).sort(sort);
+            const totalCount = await Crud.countDocuments({});
+            const totalPages = Math.ceil(totalCount / pageSize);
+
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Data fetched successfully',
-                body: data
+                body: {
+                    data: data,
+                    totalItems: totalCount,
+                    currentPage: pageNumber,
+                    totalPages: totalPages
+                }
             }
             return responseBody
         }
@@ -65,9 +78,14 @@ class CrudRepository {
         }
     }
 
-    public static async getDataById(): Promise<any> {
+    /**
+     * get data by id repository
+     * @param {string} id 
+     * @returns {IResponseBody} responseBody
+     */
+    public static async getDataById(id: string): Promise<any> {
         try {
-            const data = await Crud.find({});
+            const data = await Crud.findOne({ _id: id });
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Data fetched successfully',

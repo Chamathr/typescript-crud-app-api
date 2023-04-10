@@ -7,6 +7,7 @@ import CrudController from '../controllers/crud.controller'
 /*crud routes*/
 router.route('/').get(CrudController.healthcheck);
 router.post('/add', [celebrate(crud.crudValidation.addData)], CrudController.addData)
-router.get('/get', CrudController.getData)
+router.get('/get', [celebrate(crud.crudValidation.getData)], CrudController.getData)
+router.get('/get/:id', CrudController.getDataById)
 
 export { router as crudRouter };

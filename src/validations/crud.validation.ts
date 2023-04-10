@@ -9,6 +9,16 @@ const crudValidation = {
             age: Joi.number().integer().required()
         })
     },
+    getData: {
+        [Segments.QUERY]: {
+            page: Joi.string().required()
+        }
+    },
+    getDataById: {
+        [Segments.PARAMS]: {
+            id: Joi.string().required()
+        }
+    },
 }
 
 module.exports = { crudValidation }
