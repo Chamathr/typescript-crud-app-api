@@ -57,8 +57,8 @@ class CrudRepository {
             const skips = pageSize * (pageNumber - 1);
             const sort: any = { createdAt: -1 }
 
-            const data = await Crud.find({isDelete: false}).skip(skips).limit(pageSize).sort(sort);
-            const totalCount = await Crud.countDocuments({});
+            const data = await Crud.find({ isDelete: false }).skip(skips).limit(pageSize).sort(sort);
+            const totalCount = await Crud.countDocuments({ isDelete: false });
             const totalPages = Math.ceil(totalCount / pageSize);
 
             const responseBody: IResponseBody = {
@@ -85,11 +85,82 @@ class CrudRepository {
      */
     public static async getDataById(id: string): Promise<any> {
         try {
-            const data = await Crud.findOne({ _id: id });
+            const data = await Crud.findOne({ isDelete: false, _id: id });
+            if (!data) {
+                const responseBody: IResponseBody = {
+                    status: 404,
+                    message: 'Data not found',
+                    body: {}
+                }
+                return responseBody
+            }
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Data fetched successfully',
                 body: data
+            }
+            return responseBody
+        }
+        catch (error) {
+            throw error
+        }
+    }
+
+    /**
+    * update data by id repository
+    * @param {string} id 
+    * @param {object} requestBody
+    * @returns {IResponseBody} responseBody
+    */
+    public static async updateData(id: string, requestBody: object): Promise<any> {
+        try {
+            const isDataExists = await Crud.findOne({ isDelete: false, _id: id });
+            if (!isDataExists) {
+                const responseBody: IResponseBody = {
+                    status: 404,
+                    message: 'Data not found',
+                    body: {}
+                }
+                return responseBody
+            }
+
+            const updatedData = await Crud.findOneAndUpdate({ _id: id }, requestBody, { new: true });
+
+            const responseBody: IResponseBody = {
+                status: 200,
+                message: 'Data updated successfully',
+                body: updatedData
+            }
+            return responseBody
+        }
+        catch (error) {
+            throw error
+        }
+    }
+
+    /**
+    * delete data by id repository
+    * @param {string} id 
+    * @returns {IResponseBody} responseBody
+    */
+    public static async deleteData(id: string): Promise<any> {
+        try {
+            const isDataExists = await Crud.findOne({ isDelete: false, _id: id });
+            if (!isDataExists) {
+                const responseBody: IResponseBody = {
+                    status: 404,
+                    message: 'Data not found',
+                    body: {}
+                }
+                return responseBody
+            }
+
+            const deletedData = await Crud.findOneAndUpdate({ _id: id }, { isDelete: true }, { new: true });
+
+            const responseBody: IResponseBody = {
+                status: 200,
+                message: 'Data deleted successfully',
+                body: deletedData
             }
             return responseBody
         }

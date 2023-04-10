@@ -19,6 +19,20 @@ const crudValidation = {
             id: Joi.string().required()
         }
     },
+    updateData: {
+        [Segments.PARAMS]: {
+            id: Joi.string().required()
+        },
+        [Segments.BODY]: Joi.object().keys({
+            name: Joi.string(),
+            age: Joi.number().integer()
+        })
+    },
+    deleteData: {
+        [Segments.PARAMS]: {
+            id: Joi.string().required()
+        }
+    }
 }
 
 module.exports = { crudValidation }

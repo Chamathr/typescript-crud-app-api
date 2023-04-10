@@ -109,6 +109,60 @@ class CrudController {
         }
     }
 
+    /**
+     * update data by id controller
+     * @param {Request} req 
+     * @param {Response} res 
+     *  
+     */
+    public static async updateData(req: Request, res: Response): Promise<any> {
+        try {
+            const id: string = req?.params?.id
+            const requestBody: object = req?.body
+            const response = await CrudService.updateData(id, requestBody)
+            const responseBody: IResponseBody = {
+                status: response?.status,
+                message: response?.message,
+                body: response?.body
+            }
+            res.status(response?.status).json(responseBody)
+        }
+        catch (error) {
+            const responseBody: IResponseBody = {
+                status: 500,
+                message: 'Error',
+                body: error.message
+            }
+            res.status(500).json(responseBody);
+        }
+    }
+
+    /**
+     * delete data by id controller
+     * @param {Request} req 
+     * @param {Response} res 
+     *  
+     */
+    public static async deleteData(req: Request, res: Response): Promise<any> {
+        try {
+            const id: string = req?.params?.id
+            const response = await CrudService.deleteData(id)
+            const responseBody: IResponseBody = {
+                status: response?.status,
+                message: response?.message,
+                body: response?.body
+            }
+            res.status(response?.status).json(responseBody)
+        }
+        catch (error) {
+            const responseBody: IResponseBody = {
+                status: 500,
+                message: 'Error',
+                body: error.message
+            }
+            res.status(500).json(responseBody);
+        }
+    }
 
 }
 
