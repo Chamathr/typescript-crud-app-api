@@ -45,7 +45,7 @@ class CrudController {
             }
             res.status(response?.status).json(responseBody)
         }
-        catch (error) {
+        catch (error: any) {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
@@ -72,7 +72,7 @@ class CrudController {
             }
             res.status(response?.status).json(responseBody)
         }
-        catch (error) {
+        catch (error: any) {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
@@ -99,7 +99,7 @@ class CrudController {
             }
             res.status(response?.status).json(responseBody)
         }
-        catch (error) {
+        catch (error: any) {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
@@ -127,7 +127,7 @@ class CrudController {
             }
             res.status(response?.status).json(responseBody)
         }
-        catch (error) {
+        catch (error: any) {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
@@ -154,7 +154,7 @@ class CrudController {
             }
             res.status(response?.status).json(responseBody)
         }
-        catch (error) {
+        catch (error: any) {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',

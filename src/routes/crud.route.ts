@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import { celebrate } from 'celebrate'
+const { celebrate }  = require('celebrate')
 const crud = require('../validations/crud.validation')
 import CrudController from '../controllers/crud.controller'
 

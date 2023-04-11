@@ -1,25 +1,26 @@
-FROM node:10-slim 
+# Use an official Node.js runtime as a parent image
+FROM node:16-alpine
 
+#)ptimize the installation of Node.js packages 
 RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
-RUN npm i -g ts-node typescript
-
-RUN npm install ts-nats@next
-
-RUN npm i -g nodemon
-
-RUN mkdir /app
-
+# Set the working directory to /app
 WORKDIR /app
 
+# Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
 
-RUN npm i
+# Install app dependencies
+RUN npm install
 
+# Copy the rest of the application code to the container
 COPY . .
 
-EXPOSE 3000
-
+# Build the TypeScript code
 RUN npm run build
 
-CMD [ "npm", "run", "serve" ]
+# Expose the port the application listens on
+EXPOSE 3000
+
+# Start the application
+CMD [ "npm", "run", "start" ]

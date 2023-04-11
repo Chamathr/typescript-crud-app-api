@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import mongoosePaginate from 'mongoose-paginate-v2'
 
 const CrudSchema = new mongoose.Schema(
     {
@@ -28,6 +27,5 @@ const CrudSchema = new mongoose.Schema(
     }
 )
 
-CrudSchema.plugin(mongoosePaginate);
 const Crud = mongoose.model('crud', CrudSchema);
 export { Crud };

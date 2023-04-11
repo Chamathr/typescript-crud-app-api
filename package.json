@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon index.ts"
+    "dev": "nodemon index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "author": "Chamath Ranaweera",
   "license": "ISC",
@@ -25,7 +27,6 @@
     "express-async-errors": "^3.1.1",
     "helmet": "^6.1.1",
     "mongoose": "^7.0.3",
-    "mongoose-paginate-v2": "^1.7.1",
     "morgan": "^1.10.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.2"

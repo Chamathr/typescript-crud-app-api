@@ -1,5 +1,7 @@
 require('dotenv').config()
 
-export default {
-    databaseUrl: process.env.DATABASE_URL,
+class DatabaseConfig {
+    public static databaseUrl: any = process.env.DATABASE_URL
 }
+
+export { DatabaseConfig }

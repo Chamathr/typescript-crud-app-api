@@ -1,5 +1,5 @@
 import mongoose, { ConnectOptions } from 'mongoose';
-import databaseConfig from '../config/database';
+import { DatabaseConfig } from '../config/database';
 
 class MongoDbConnection {
 
@@ -14,10 +14,10 @@ class MongoDbConnection {
         } as ConnectOptions;
         if (!MongoDbConnection.instance) {
             try {
-                await mongoose.connect(databaseConfig.databaseUrl, options)
+                await mongoose.connect(DatabaseConfig.databaseUrl, options)
                 console.log('Connected to MongoDB!');
             }
-            catch (error) {
+            catch (error: any) {
                 console.error('Error connecting to MongoDB:', error.message);
             }
             MongoDbConnection.instance = new MongoDbConnection();

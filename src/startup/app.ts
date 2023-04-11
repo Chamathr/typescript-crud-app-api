@@ -1,11 +1,11 @@
 import express, { Application } from 'express';
-import cors from 'cors';
+const cors = require('cors');
 import { crudRouter } from '../routes/crud.route';
 import { errors } from '../middlewares/errors';
-import helmet from "helmet"
-import cookieParser from 'cookie-parser'
-import logger from 'morgan'
-import swaggerUi from 'swagger-ui-express'
+const helmet = require("helmet")
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
+const swaggerUi = require('swagger-ui-express')
 import { swaggerDoc } from '../swagger/info';
 
 export default (app: Application) => {
