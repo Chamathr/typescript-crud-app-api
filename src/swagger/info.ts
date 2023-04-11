@@ -14,22 +14,22 @@ export const swaggerDoc = {
             "url": `http://localhost:8000${serverPrefix}`
         }
     ],
-    paths: {
+    "paths": {
         "/": Swagger.healthCheck,
         "/get": Swagger.getData
     },
-    components: {
-        securitySchemes: {
-            bearerAuth: {
-                type: "http",
-                scheme: "bearer",
-                bearerFormat: "JWT",
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
             },
         },
     },
-    security: [
+    "security": [
         {
-            bearerAuth: [],
+            "bearerAuth": [],
         },
     ],
 };

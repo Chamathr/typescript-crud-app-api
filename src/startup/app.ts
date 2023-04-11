@@ -6,7 +6,6 @@ import helmet from "helmet"
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import swaggerUi from 'swagger-ui-express'
-import swaggerJSDoc from 'swagger-jsdoc'
 import { swaggerDoc } from '../swagger/info';
 
 export default (app: Application) => {
@@ -14,13 +13,7 @@ export default (app: Application) => {
     app.use(logger('dev'));
     app.use(express.json());
 
-    /*Swagger configuration*/
-    const swaggerOptions = {
-        definition: require('../../swagger.json'),
-        apis: ['../routes/*.js'],
-    };
-    const swaggerSpec = swaggerJSDoc(swaggerOptions);
-    /*Swagger UI*/
+    /*swagger config*/
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
     app.use(cors());
