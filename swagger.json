@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Swagger CRUD API",
+        "description": "A sample CRUD API built with Swagger and Node.js"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/v1/crud/get": {
+            "get": {
+                "summary": "Get all data",
+                "parameters": [{
+                    "name": "page",
+                    "in": "query",
+                    "description": "Page number",
+                    "required": true,
+                    "type": "integer"
+                }],
+                "operationId": "getAllData",
+                "responses": {
+                    "200": {
+                        "description": "A list of data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Data"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Data": {
+                "type": "object",
+                "required": [
+                    "_id",
+                    "name",
+                    "email",
+                    "age",
+                    "createdAt"
+                ],
+                "properties": {
+                    "_id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "age": {
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
