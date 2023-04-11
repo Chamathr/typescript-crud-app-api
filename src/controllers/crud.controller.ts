@@ -15,7 +15,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Service is running fine',
-                body: 'Service is running fine'
+                data: 'Service is running fine'
             }
             res.status(200).json(responseBody);
         }
@@ -23,7 +23,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
-                body: 'Error'
+                data: 'Error'
             }
             res.status(500).json(responseBody);
         }
@@ -41,7 +41,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: response?.status,
                 message: response?.message,
-                body: response?.body
+                data: response?.data
             }
             res.status(response?.status).json(responseBody)
         }
@@ -49,7 +49,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
-                body: error.message
+                data: error.message
             }
             res.status(500).json(responseBody);
         }
@@ -68,7 +68,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: response?.status,
                 message: response?.message,
-                body: response?.body
+                data: response?.data
             }
             res.status(response?.status).json(responseBody)
         }
@@ -76,7 +76,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
-                body: error.message
+                data: error.message
             }
             res.status(500).json(responseBody);
         }
@@ -95,7 +95,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: response?.status,
                 message: response?.message,
-                body: response?.body
+                data: response?.data
             }
             res.status(response?.status).json(responseBody)
         }
@@ -103,7 +103,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
-                body: error.message
+                data: error.message
             }
             res.status(500).json(responseBody);
         }
@@ -123,7 +123,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: response?.status,
                 message: response?.message,
-                body: response?.body
+                data: response?.data
             }
             res.status(response?.status).json(responseBody)
         }
@@ -131,7 +131,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
-                body: error.message
+                data: error.message
             }
             res.status(500).json(responseBody);
         }
@@ -150,7 +150,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: response?.status,
                 message: response?.message,
-                body: response?.body
+                data: response?.data
             }
             res.status(response?.status).json(responseBody)
         }
@@ -158,7 +158,7 @@ class CrudController {
             const responseBody: IResponseBody = {
                 status: 500,
                 message: 'Error',
-                body: error.message
+                data: error.message
             }
             res.status(500).json(responseBody);
         }

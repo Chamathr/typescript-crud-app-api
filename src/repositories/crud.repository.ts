@@ -20,7 +20,7 @@ class CrudRepository {
                 const responseBody: IResponseBody = {
                     status: 409,
                     message: 'Email already exists',
-                    body: {}
+                    data: {}
                 }
                 return responseBody
             }
@@ -36,7 +36,7 @@ class CrudRepository {
             const responseBody: IResponseBody = {
                 status: 201,
                 message: 'Data added successfully',
-                body: insertedData
+                data: insertedData
             }
             return responseBody
 
@@ -64,7 +64,7 @@ class CrudRepository {
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Data fetched successfully',
-                body: {
+                data: {
                     data: data,
                     totalItems: totalCount,
                     currentPage: pageNumber,
@@ -90,14 +90,14 @@ class CrudRepository {
                 const responseBody: IResponseBody = {
                     status: 404,
                     message: 'Data not found',
-                    body: {}
+                    data: {}
                 }
                 return responseBody
             }
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Data fetched successfully',
-                body: data
+                data: data
             }
             return responseBody
         }
@@ -119,7 +119,7 @@ class CrudRepository {
                 const responseBody: IResponseBody = {
                     status: 404,
                     message: 'Data not found',
-                    body: {}
+                    data: {}
                 }
                 return responseBody
             }
@@ -129,7 +129,7 @@ class CrudRepository {
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Data updated successfully',
-                body: updatedData
+                data: updatedData
             }
             return responseBody
         }
@@ -150,7 +150,7 @@ class CrudRepository {
                 const responseBody: IResponseBody = {
                     status: 404,
                     message: 'Data not found',
-                    body: {}
+                    data: {}
                 }
                 return responseBody
             }
@@ -160,7 +160,7 @@ class CrudRepository {
             const responseBody: IResponseBody = {
                 status: 200,
                 message: 'Data deleted successfully',
-                body: deletedData
+                data: deletedData
             }
             return responseBody
         }

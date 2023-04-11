@@ -1,7 +1,7 @@
 interface IResponseBody {
     status: number,
     message: string,
-    body: any
+    data: any
 }
 
 export { IResponseBody }

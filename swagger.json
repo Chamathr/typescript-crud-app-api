@@ -14,13 +14,16 @@
         "/api/v1/crud/get": {
             "get": {
                 "summary": "Get all data",
-                "parameters": [{
-                    "name": "page",
-                    "in": "query",
-                    "description": "Page number",
-                    "required": true,
-                    "type": "integer"
-                }],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": true,
+                        "type": "integer",
+                        "readOnly": false
+                    }
+                ],
                 "operationId": "getAllData",
                 "responses": {
                     "200": {
