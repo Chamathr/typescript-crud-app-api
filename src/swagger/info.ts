@@ -16,7 +16,11 @@ export const swaggerDoc = {
     ],
     "paths": {
         "/": Swagger.healthCheck,
-        "/get": Swagger.getData
+        "/add": Swagger.addData,
+        "/update/{id}": Swagger.updateData,
+        "/get": Swagger.getData,
+        "/delete/{id}": Swagger.deleteData,
+        "/get/{id}": Swagger.getDataById
     },
     "components": {
         "securitySchemes": {
