@@ -54,21 +54,21 @@ class Swagger {
             "operationId": "getAllData",
             "responses": {
                 "200": {
-                    "description": "A list of data",
+                    "description": "Data fetched successfully",
                     "schema": {
                         "type": "object",
                         "properties": {
-                            code: {
+                            "status": {
                                 type: "string",
-                                description: "200",
+                                description: "Response status code",
                             },
-                            message: {
+                            "message": {
                                 type: "string",
-                                description: "Success",
+                                description: "Response message",
                             },
-                            data: {
+                            "data": {
                                 type: "string",
-                                description: "Healthcheck Pass",
+                                description: "Response data",
                             },
                         },
                     },
