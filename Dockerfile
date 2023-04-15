@@ -20,7 +20,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port the application listens on
-EXPOSE 3000
+EXPOSE 8000
 
 # Start the application
 CMD [ "npm", "run", "start" ]

@@ -53,7 +53,7 @@ class CrudRepository {
     public static async getData(page: string): Promise<any> {
         try {
             const pageNumber = parseInt(page) || 1
-            const pageSize = 10
+            const pageSize = 5
             const skips = pageSize * (pageNumber - 1);
             const sort: any = { createdAt: -1 }
 

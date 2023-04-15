@@ -12,12 +12,10 @@ export default (app: Application) => {
     app.use(helmet());
     app.use(logger('dev'));
     app.use(express.json());
-
+    app.use(cors());
+    app.use(express.urlencoded({ extended: true }));
     /*swagger config*/
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
-
-    app.use(cors());
-    app.use(express.urlencoded());
     app.use(cookieParser());
     app.use('/api/v1/crud/', crudRouter);
     app.use(errors);
