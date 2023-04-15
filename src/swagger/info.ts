@@ -2,6 +2,8 @@ import { Swagger } from "./path"
 require('dotenv').config()
 
 const serverPrefix = process.env.SERVER_PREFIX
+const baseUrl = process.env.BASE_URL
+
 export const swaggerDoc = {
     "openapi": "3.0.0",
     "info": {
@@ -11,7 +13,7 @@ export const swaggerDoc = {
     },
     "servers": [
         {
-            "url": `http://localhost:8000${serverPrefix}`
+            "url": `${baseUrl}/${serverPrefix}`
         }
     ],
     "paths": {
