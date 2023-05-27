@@ -5,4 +5,9 @@ interface ISignup {
     password: string
 }
 
-export { ISignup }
+interface ISignin {
+    email: string,
+    password: string
+}
+
+export { ISignup, ISignin }

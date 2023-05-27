@@ -1,5 +1,5 @@
 import { IResponseBody } from '../interfaces/common.interface'
-import { ISignup } from '../interfaces/auth.interface'
+import { ISignup, ISignin } from '../interfaces/auth.interface'
 import AuthRepository from '../repositories/auth.repository'
 
 class AuthService {
@@ -12,6 +12,21 @@ class AuthService {
     public static async signUp(requestBody: ISignup): Promise<any> {
         try {
             const response: IResponseBody = await AuthRepository.signUp(requestBody)
+            return response
+        }
+        catch (error) {
+            throw error
+        }
+    }
+
+     /**
+     * signin service
+     * @param {ISignin} requestBody 
+     * @returns {IResponseBody} responseBody
+     */
+     public static async signIn(requestBody: ISignin): Promise<any> {
+        try {
+            const response: IResponseBody = await AuthRepository.signIn(requestBody)
             return response
         }
         catch (error) {

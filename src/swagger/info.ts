@@ -30,8 +30,8 @@ export const swaggerDoc = {
         "/crud/get/{id}": CrudSwagger.getDataById,
 
         /*auth swagger*/
-        "/auth/signup": AuthSwagger.signUp
-        // "/crud/get/{id}": CrudSwagger.getDataById
+        "/auth/signup": AuthSwagger.signUp,
+        "/auth/signin": AuthSwagger.signIn
     },
     "components": {
         "securitySchemes": {

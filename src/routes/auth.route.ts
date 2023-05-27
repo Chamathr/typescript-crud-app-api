@@ -6,6 +6,6 @@ import AuthController from '../controllers/auth.controller'
 
 /*auth routes*/
 router.post('/signup', [celebrate(auth.authValidation.signup)], AuthController.signUp)
-// router.get('/login', [celebrate(crud.crudValidation.signIn)], CrudController.signIn)
+router.post('/signin', [celebrate(auth.authValidation.signin)], AuthController.signIn)
 
 export { router as authRouter };
