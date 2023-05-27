@@ -3,6 +3,9 @@ import { Joi, Segments } from 'celebrate'
 const crudValidation = {
 
     addData: {
+        [Segments.HEADERS]: Joi.object({
+            authorization: Joi.string().required(),
+        }).unknown(),
         [Segments.BODY]: Joi.object().keys({
             name: Joi.string().required(),
             email: Joi.string().email().required(),
@@ -10,16 +13,25 @@ const crudValidation = {
         })
     },
     getData: {
+        [Segments.HEADERS]: Joi.object({
+            authorization: Joi.string().required(),
+        }).unknown(),
         [Segments.QUERY]: {
             page: Joi.string().required()
         }
     },
     getDataById: {
+        [Segments.HEADERS]: Joi.object({
+            authorization: Joi.string().required(),
+        }).unknown(),
         [Segments.PARAMS]: {
             id: Joi.string().required()
         }
     },
     updateData: {
+        [Segments.HEADERS]: Joi.object({
+            authorization: Joi.string().required(),
+        }).unknown(),
         [Segments.PARAMS]: {
             id: Joi.string().required()
         },
@@ -29,6 +41,9 @@ const crudValidation = {
         })
     },
     deleteData: {
+        [Segments.HEADERS]: Joi.object({
+            authorization: Joi.string().required(),
+        }).unknown(),
         [Segments.PARAMS]: {
             id: Joi.string().required()
         }
