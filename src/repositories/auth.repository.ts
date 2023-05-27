@@ -16,6 +16,7 @@ class AuthRepository {
 
             const { name, email, age, password } = requestBody;
             const encryptedPassword = bcrypt.hashSync(password, 8)
+            console.log("Aaa", encryptedPassword)
 
             const isEmailExists = await Auth.findOne({ email: email });
 
