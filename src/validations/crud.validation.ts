@@ -32,7 +32,21 @@ const crudValidation = {
         [Segments.PARAMS]: {
             id: Joi.string().required()
         }
-    }
+    },
+    signup: {
+        [Segments.BODY]: Joi.object().keys({
+            name: Joi.string().required(),
+            email: Joi.string().email().required(),
+            password: Joi.string().required(),
+            age: Joi.number().integer().required()
+        })
+    },
+    signin: {
+        [Segments.BODY]: Joi.object().keys({
+            email: Joi.string().email().required(),
+            password: Joi.string().required(),
+        })
+    },
 }
 
 module.exports = { crudValidation }
