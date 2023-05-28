@@ -1,4 +1,6 @@
-import { Swagger } from "./path"
+import { IndexSwagger } from "./index.path"
+import { CrudSwagger } from "./crud.path"
+import { AuthSwagger } from "./auth.path"
 require('dotenv').config()
 
 const serverPrefix = process.env.SERVER_PREFIX
@@ -17,12 +19,19 @@ export const swaggerDoc = {
         }
     ],
     "paths": {
-        "/": Swagger.healthCheck,
-        "/add": Swagger.addData,
-        "/update/{id}": Swagger.updateData,
-        "/get": Swagger.getData,
-        "/delete/{id}": Swagger.deleteData,
-        "/get/{id}": Swagger.getDataById
+        /*index swagger*/
+        "/": IndexSwagger.healthCheck,
+
+        /*crud swagger*/
+        "/crud/add": CrudSwagger.addData,
+        "/crud/update/{id}": CrudSwagger.updateData,
+        "/crud/get": CrudSwagger.getData,
+        "/crud/delete/{id}": CrudSwagger.deleteData,
+        "/crud/get/{id}": CrudSwagger.getDataById,
+
+        /*auth swagger*/
+        "/auth/signup": AuthSwagger.signUp,
+        "/auth/signin": AuthSwagger.signIn
     },
     "components": {
         "securitySchemes": {
