@@ -84,9 +84,6 @@ class CrudSwagger {
                                 "name": {
                                     "type": "string",
                                 },
-                                "email": {
-                                    "type": "string",
-                                },
                                 "age": {
                                     "type": "integer",
                                 }
