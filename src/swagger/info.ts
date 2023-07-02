@@ -31,7 +31,8 @@ export const swaggerDoc = {
 
         /*auth swagger*/
         "/auth/signup": AuthSwagger.signUp,
-        "/auth/signin": AuthSwagger.signIn
+        "/auth/signin": AuthSwagger.signIn,
+        "/auth/access-token": AuthSwagger.accessToken
     },
     "components": {
         "securitySchemes": {

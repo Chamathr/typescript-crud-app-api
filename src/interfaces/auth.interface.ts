@@ -10,4 +10,8 @@ interface ISignin {
     password: string
 }
 
-export { ISignup, ISignin }
+interface IAccessToken {
+    refreshToken: string,
+}
+
+export { ISignup, ISignin, IAccessToken }

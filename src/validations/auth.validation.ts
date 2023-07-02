@@ -16,6 +16,11 @@ const authValidation = {
             password: Joi.string().required(),
         })
     },
+    accessToken: {
+        [Segments.BODY]: Joi.object().keys({
+            refreshToken: Joi.string().required(),
+        })
+    },
 }
 
 module.exports = { authValidation }

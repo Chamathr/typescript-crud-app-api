@@ -13,7 +13,7 @@ class AuthMiddleware {
     public static async authenticateToken(req: Request, res: Response, next: NextFunction) {
         try {
             const token = req?.headers["authorization"];
-            jwt.verify(token?.replace('Bearer ', ''), jwtAuth.secret, (error: any, decoded: any) => {
+            jwt.verify(token?.replace('Bearer ', ''), jwtAuth.accessSecret, (error: any, decoded: any) => {
                 if (error) {
                     const responseBody: IResponseBody = {
                         status: 401,

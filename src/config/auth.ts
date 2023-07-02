@@ -1,6 +1,8 @@
 const jwtAuth = {
-    secret: 'my-32-character-ultra-secure-and-ultra-long-secre',
-    time: 5000
+    accessSecret: 'crudAppAccess@123',
+    accessTime: 60,
+    refreshSecret: 'crudAppRefresh@123',
+    refreshTime: 600,
 };
   
 export default jwtAuth
