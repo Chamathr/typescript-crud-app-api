@@ -1,8 +1,8 @@
 const jwtAuth = {
     accessSecret: 'crudAppAccess@123',
-    accessTime: 60,
+    accessTime: 3600,
     refreshSecret: 'crudAppRefresh@123',
-    refreshTime: 600,
+    refreshTime: 360000,
 };
   
 export default jwtAuth
