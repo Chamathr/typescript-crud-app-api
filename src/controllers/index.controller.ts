@@ -12,8 +12,8 @@ class IndexController {
         try {
             const responseBody: IResponseBody = {
                 status: 200,
-                message: 'Service is running fine',
-                data: 'Service is running fine'
+                message: 'Service is running fine!',
+                data: 'Service is running fine!'
             }
             res.status(200).json(responseBody);
         }
